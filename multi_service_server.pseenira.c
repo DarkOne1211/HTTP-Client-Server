@@ -90,6 +90,7 @@ int main(int argc, char** argv)
 int handleUDPConnection(struct sockaddr_in UDPClient, int udpSocket)
 {
     char buffer[UDP_PING_SIZE];
+    bzero((char *) &buffer, sizeof(buffer));
     int recvLen, sendLen;
     int clientlen = sizeof(UDPClient);
     recvLen = recvfrom(udpSocket, buffer, UDP_PING_SIZE, 0, 
